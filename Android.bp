@@ -63,6 +63,9 @@ cc_defaults {
     // Build BoringSSL and its tests against the same STL.
     sdk_version: "9",
     stl: "libc++_static",
+    lto: {
+        never: true,
+    },
 }
 
 // Used by libcrypto + libssl
@@ -72,6 +75,9 @@ cc_defaults {
     local_include_dirs: ["src/include"],
     export_include_dirs: ["src/include"],
     cflags: ["-DBORINGSSL_IMPLEMENTATION"],
+    lto: {
+        never: true,
+    },
 }
 
 //// libcrypto
@@ -104,6 +110,9 @@ cc_defaults {
 
     local_include_dirs: ["src/crypto"],
     stl: "none",
+    lto: {
+        never: true,
+    },
 }
 
 // Boring Crypto Module object file.
